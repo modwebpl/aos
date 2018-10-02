@@ -1,2 +1,2 @@
-# aos
-Fastest AOS in 93 lines as ES6 module : o
+# AOS - animate on scroll
+Simple & clean in 93 lines as ES6 module =)
