@@ -1,2 +1,2 @@
 # aos
-Much better, scalable and faster solution then AOS : o
+Fastest AOS in 93 lines : o
