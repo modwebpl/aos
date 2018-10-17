@@ -73,7 +73,7 @@ export class aos {
 
   destroy() {
     try {
-      if (this._scroll._fn.aos) document.removeEventListener('scroll', this._scroll._fn.aos);
+      this._scroll._fn.aos ? document.removeEventListener('scroll', this._scroll._fn.aos) : '';
 
       Object.entries(this).forEach(([key, val]) => {
         delete this[key];
