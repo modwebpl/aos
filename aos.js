@@ -11,10 +11,7 @@ export class aos {
   _setVars() {
     var _this = this;
 
-    _this._body = document.getElementsByTagName('body')[0];
-    if (!_this._body) return false;
-
-    _this._aos = _this._body.querySelectorAll('.aos');
+    _this._aos = document.querySelectorAll('.aos');
     if (!_this._aos.length) return false;
 
     _this._scroll = {};
@@ -22,7 +19,6 @@ export class aos {
     _this._arr = [];
 
     EasePack;
-
     return true;
   }
 
