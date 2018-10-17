@@ -1,4 +1,4 @@
-class aos {
+export class aos {
   constructor() {
     this.init();
   }
@@ -87,7 +87,4 @@ class aos {
       console.error(e.message);
     }
   }
-
 }
-
-export {aos}
