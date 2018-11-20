@@ -9,7 +9,7 @@ export class aos {
   }
 
   _setVars() {
-    var _this = this;
+    let _this = this;
 
     _this._aos = document.querySelectorAll('.aos');
     if (!_this._aos.length) return false;
@@ -39,7 +39,7 @@ export class aos {
   }
 
   _onScroll() {
-    var _this = this;
+    let _this = this;
 
     this._scroll._fn = this._scroll._fn || {};
     this._scroll._fn.aos = () => {
@@ -68,7 +68,7 @@ export class aos {
 
   _update(key) {
     this._arr.push(key);
-    if (this._arr.length === this._aos.length) this.destroy();
+    this._arr.length === this._aos.length ? this.destroy() : '';
   }
 
   destroy() {
