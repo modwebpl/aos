@@ -78,7 +78,6 @@ export class aos {
       Object.entries(this).forEach(([key, val]) => {
         delete this[key];
       });
-
     } catch (e) {
       console.error(e.message);
     }
