@@ -1,5 +1,5 @@
 export class aos {
-  constructor(className = '.aos') {
+  constructor(className = 'aos') {
     this.init(className);
   }
 
@@ -14,7 +14,7 @@ export class aos {
     _this._body = document.getElementsByTagName('body')[0];
     if (!_this._body) return false;
 
-    _this._aos = _this._body.querySelectorAll(className);
+    _this._aos = _this._body.querySelectorAll('.' + className);
     if (!_this._aos.length) return false;
 
     _this._scroll = {};
