@@ -22,9 +22,6 @@ export class aos {
     _this._timer = {};
     _this._arr = [];
 
-    EasePack;
-    CSSPlugin;
-
     return true;
   }
 
@@ -66,7 +63,6 @@ export class aos {
               _this._update(key);
             }
           });
-
 
           this._timer = setTimeout(() => {
             tl.play().to(this._aos[key], 1.5, {y: '0%', ease: Expo.easeOut})
