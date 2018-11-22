@@ -37,6 +37,7 @@ export class aos {
       this._data['act' + key] = false;
       this._data['rel' + key] = getOffset(val).t + offset;
       this._data['delay' + key] = val.getAttribute('data-delay') || 0;
+      this._data['top' + key] = val.getAttribute('data-top') ? true : false;
 
       TweenLite.set(val, {autoAlpha: 0, y: '50%'})
     });
@@ -47,9 +48,10 @@ export class aos {
 
     this._scroll._fn = this._scroll._fn || {};
     this._scroll._fn.aos = () => {
-      let sTop = document.body.scrollTop || document.documentElement.scrollTop,
-        relTop = sTop + window.innerHeight;
+      let sTop = document.body.scrollTop || document.documentElement.scrollTop, relTop;
 
+      !this._data['align' + key] ? relTop = sTop + window.innerHeight : relTop = sTop;
+      
       for (let key = 0; key <= this._aos.length; key++) {
 
         if (relTop >= this._data['rel' + key] && !this._data['act' + key]) {
