@@ -19,7 +19,6 @@ export class aos {
 
     _this._scroll = {};
     _this._data = {};
-    _this._timer = {};
     _this._arr = [];
     
     return true;
@@ -65,7 +64,7 @@ export class aos {
             }
           });
 
-          this._timer = setTimeout(() => {
+          let timer = setTimeout(() => {
             tl.play().to(this._aos[key], 1.5, {y: '0%', x: '0%', ease: Expo.easeOut})
               .to(this._aos[key], 1.5, {autoAlpha: 1}, '-=1.5');
           }, parseFloat(this._data['delay' + key]) * 1000);
@@ -83,8 +82,7 @@ export class aos {
   destroy() {
     try {
       this._scroll._fn.aos ? document.removeEventListener('scroll', this._scroll._fn.aos) : '';
-
-      clearTimeout(this._timer);
+      
       Object.entries(this).forEach(([key, val]) => {
         delete this[key];
       });
