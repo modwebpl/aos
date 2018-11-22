@@ -88,7 +88,7 @@ export class aos {
       });
 
     } catch (e) {
-      console.error(e);
+      console.error(e.message);
     }
   }
 }
