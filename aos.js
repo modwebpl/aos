@@ -49,11 +49,10 @@ export class aos {
     this._scroll._fn = this._scroll._fn || {};
     this._scroll._fn.aos = () => {
       let sTop = document.body.scrollTop || document.documentElement.scrollTop, relTop;
-
-      !this._data['align' + key] ? relTop = sTop + window.innerHeight : relTop = sTop;
-      
+   
       for (let key = 0; key <= this._aos.length; key++) {
-
+        !this._data['top' + key] ? relTop = sTop + window.innerHeight : relTop = sTop;
+        
         if (relTop >= this._data['rel' + key] && !this._data['act' + key]) {
 
           this._data['act' + key] = true;
