@@ -66,7 +66,7 @@ export class aos {
 
           this._timer = setTimeout(() => {
             tl.play().to(this._aos[key], 1.5, {y: '0%', ease: Expo.easeOut})
-              .to(this._aos[key], 1.5, {autoAlpha: 1}, '-=1.2');
+              .to(this._aos[key], 1.5, {autoAlpha: 1}, '-=1.5');
           }, parseFloat(this._data['delay' + key]) * 1000);
         }
       }
