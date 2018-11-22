@@ -9,19 +9,19 @@ export class aos {
   }
 
   _setVars(className) {
-    var _this = this;
+    let _this = this;
 
-    _this._body = document.getElementsByTagName('body')[0];
-    if (!_this._body) return false;
+    _this._parent = document.getElementsByTagName('body')[0];
+    if (!_this._parent) return false;
 
-    _this._aos = _this._body.querySelectorAll('.' + className);
+    _this._aos = _this._parent.querySelectorAll('.' + className);
     if (!_this._aos.length) return false;
 
     _this._scroll = {};
     _this._data = {};
     _this._timer = {};
     _this._arr = [];
-
+    
     return true;
   }
 
@@ -32,29 +32,29 @@ export class aos {
 
   _setOffset() {
     each(this._aos, (key, val) => {
-      let offset = parseInt(val.getAttribute('data-offset')) || 0;
-      
+      let offset = parseInt(val.getAttribute('data-offset')) || 200, setY = val.getAttribute('data-y') || '50%',
+        setX = val.getAttribute('data-x') || '0%';
+
+      TweenLite.set(val, {autoAlpha: 0, y: setY, x: setX});
+
       this._data['act' + key] = false;
       this._data['rel' + key] = getOffset(val).t + offset;
       this._data['delay' + key] = val.getAttribute('data-delay') || 0;
       this._data['top' + key] = val.getAttribute('data-top') ? true : false;
-      
-      TweenLite.set(val, {autoAlpha: 0, y: '50%'})
     });
   }
 
   _onScroll() {
-    var _this = this;
+    let _this = this;
 
     this._scroll._fn = this._scroll._fn || {};
     this._scroll._fn.aos = () => {
       let sTop = document.body.scrollTop || document.documentElement.scrollTop, relTop;
-   
+
       for (let key = 0; key <= this._aos.length; key++) {
         !this._data['top' + key] ? relTop = sTop + window.innerHeight : relTop = sTop;
-        
-        if (relTop >= this._data['rel' + key] && !this._data['act' + key]) {
 
+        if (relTop >= this._data['rel' + key] && !this._data['act' + key]) {
           this._data['act' + key] = true;
 
           let tl = new TimelineLite({
@@ -66,7 +66,7 @@ export class aos {
           });
 
           this._timer = setTimeout(() => {
-            tl.play().to(this._aos[key], 1.5, {y: '0%', ease: Expo.easeOut})
+            tl.play().to(this._aos[key], 1.5, {y: '0%', x: '0%', ease: Expo.easeOut})
               .to(this._aos[key], 1.5, {autoAlpha: 1}, '-=1.5');
           }, parseFloat(this._data['delay' + key]) * 1000);
         }
