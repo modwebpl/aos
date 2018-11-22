@@ -33,12 +33,12 @@ export class aos {
   _setOffset() {
     each(this._aos, (key, val) => {
       let offset = parseInt(val.getAttribute('data-offset')) || 0;
-
+      
       this._data['act' + key] = false;
       this._data['rel' + key] = getOffset(val).t + offset;
       this._data['delay' + key] = val.getAttribute('data-delay') || 0;
       this._data['top' + key] = val.getAttribute('data-top') ? true : false;
-
+      
       TweenLite.set(val, {autoAlpha: 0, y: '50%'})
     });
   }
