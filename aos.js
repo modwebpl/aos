@@ -72,7 +72,7 @@ export class aos {
         }
       }
     };
-    document.addEventListener('scroll', this._scroll._fn.aos);
+    document.addEventListener('scroll', this._scroll._fn.aos, {pasive: true});
   }
 
   _update(key) {
