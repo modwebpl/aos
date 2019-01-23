@@ -12,10 +12,10 @@ export class aos {
     let _this = this;
 
     _this._parent = document.getElementsByTagName('body')[0];
-    if (!_this._parent) return false;
+    if (!this._parent) return false;
 
     _this._aos = _this._parent.querySelectorAll('.' + className);
-    if (!_this._aos.length) return false;
+    if (!this._aos.length) return false;
 
     _this._scroll = {};
     _this._data = {};
