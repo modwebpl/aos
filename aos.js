@@ -10,11 +10,8 @@ export class aos {
 
   _setVars(className) {
     let _this = this;
-
-    _this._parent = document.getElementsByTagName('body')[0];
-    if (!this._parent) return false;
-
-    _this._aos = _this._parent.querySelectorAll('.' + className);
+    
+    _this._aos = document.body.getElementsByclassName(className);
     if (!this._aos.length) return false;
 
     _this._scroll = {};
