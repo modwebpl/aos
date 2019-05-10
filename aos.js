@@ -1,9 +1,5 @@
 export class aos {
   constructor(className = 'aos') {
-    this.init(className);
-  }
-
-  init(className) {
     if (!this._setVars(className)) return;
     this._setEvents();
   }
