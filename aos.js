@@ -75,7 +75,7 @@ export class aos {
 
   destroy() {
     try {
-      this._scroll._fn.aos ? document.removeEventListener('scroll', this._scroll._fn.aos) : '';
+      if(this._scroll._fn.aos) document.removeEventListener('scroll', this._scroll._fn.aos);
       
       // Object.entries needs polyfill on IE <= 11
       Object.entries(this).forEach(([key, val]) => {
