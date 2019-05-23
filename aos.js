@@ -70,7 +70,7 @@ export class aos {
 
   _update(key) {
     this._arr.push(key);
-    this._arr.length === this._aos.length ? this.destroy() : '';
+    return this._arr.length === this._aos.length ? this.destroy() : void 0;
   }
 
   destroy() {
